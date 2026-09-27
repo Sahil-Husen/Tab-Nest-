@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Nest</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="head">
+    <div class="head-top">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="6" width="14" height="4" rx="2" fill="#5EEAD4"/>
+          <rect x="3" y="12" width="11" height="4" rx="2" fill="#5EEAD4" opacity="0.75"/>
+          <rect x="3" y="18" width="8" height="3.4" rx="1.7" fill="#FBBF24"/>
+        </svg>
+        <span class="brand-name">Nest</span>
+      </div>
+      <span class="tab-count" id="tabCount">0 tabs</span>
+    </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" class="search-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="6.5" stroke="#8B8F9C" stroke-width="1.6"/>
+        <path d="M20 20L16 16" stroke="#8B8F9C" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <input id="search" type="text" placeholder="Find a tab by title or URL" autocomplete="off" />
+    </div>
+    <button id="pinAllBtn" class="pin-all-btn" type="button">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M14.7 2.3a1 1 0 0 0-1.4 0l-1 1a1 1 0 0 0 0 1.4l.3.3-3.6 3.6-2.6-.6a1 1 0 0 0-1 .3L4 9.7a1 1 0 0 0 0 1.4l4 4-5 5a1 1 0 1 0 1.4 1.4l5-5 4 4a1 1 0 0 0 1.4 0l1.4-1.4a1 1 0 0 0 .3-1l-.6-2.6 3.6-3.6.3.3a1 1 0 0 0 1.4 0l1-1a1 1 0 0 0 0-1.4z"/></svg>
+      Pin all open tabs
+    </button>
+  </header>
+
+  <main id="content" class="content">
+    <section id="pinnedSection" class="section pinned-section">
+      <div class="section-label">
+        <span class="dot dot-pin"></span>Pinned list
+        <span class="section-count" id="pinnedCount"></span>
+      </div>
+      <div id="pinnedRow" class="pinned-row"></div>
+      <p id="pinnedEmpty" class="section-empty" hidden>Click the pin icon on any tab below — it stays in this list even after you close it or unpin it in Chrome.</p>
+    </section>
+
+    <section id="windowsSection" class="section"></section>
+
+    <section id="closedSection" class="section closed-section">
+      <button id="closedToggle" class="section-label closed-toggle" type="button">
+        <span class="dot dot-closed"></span>Recently closed
+        <span class="section-count" id="closedCount"></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 9l6 6 6-6" stroke="#8B8F9C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div id="closedList" class="closed-list" hidden></div>
+    </section>
+
+    <div id="emptyState" class="empty-state" hidden>
+      <p>No tabs match “<span id="emptyQuery"></span>”</p>
+    </div>
+  </main>
+
+  <script src="nest-storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
